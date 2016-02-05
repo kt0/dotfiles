@@ -1,3 +1,12 @@
+alias -g L="| less"
+alias -g G="| grep"
+alias -g W="| wc -l"
+
+alias '..'='cd ..'
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+
 alias gst='git status'
 
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
@@ -40,6 +49,14 @@ alias c='colorize'
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 # alias dig="dig +nocmd any +multiline +noall +answer"
 
-alias time=/usr/bim/time
+alias time=/usr/bin/time
 
-alias proxy="proxychains4 2>/dev/null"
+alias no="2>/dev/null"
+alias proxy="no proxychains4"
+
+alias tasks="task list"
+
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# alias nano='`brew --prefix nano`/bin/nano'

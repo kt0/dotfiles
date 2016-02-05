@@ -1,0 +1,57 @@
+#! /usr/bin/env zsh
+
+if [[ $1 = "none" ]]; then
+  echo "Remove all filters $(cat ~/.task_params)"
+  echo "" > ~/.task_params
+  exit 0
+fi
+
+IFS=$'\n'
+CONTEXTS=( $(command task _context) )
+IFS=' '
+
+containsElement () {
+  local e
+  for e in "${@:2}"; do [[ "$e" == "$1" ]] && return 0; done
+  return 1
+}
+
+TO_REMOVE=()
+NEW=()
+
+ARGUMENTS=( $@ )
+
+TASK_PARAMS=
+if [[ -n $CONTEXTS ]]; then
+  for ARG in ${ARGUMENTS[@]}; do
+    DO_REMOVE=0
+    if [[ ${ARG:0:1} = "-" ]]; then
+      DO_REMOVE=1
+      ARG=${ARG:1}
+    fi
+    if containsElement $ARG "${CONTEXTS[@]}"; then
+      ARG="$(command task _get rc.context.$ARG)"
+    fi
+    if [[ $DO_REMOVE -eq 1 ]]; then
+      TO_REMOVE+=$ARG
+    else
+      NEW+=$ARG
+    fi
+  done
+fi
+
+TASK_PARAMS=( $(cat ~/.task_params) )
+
+for item in ${NEW[@]}; do
+  TASK_PARAMS+=$item
+done
+
+for item in ${TO_REMOVE[@]}; do
+  TASK_PARAMS=(${TASK_PARAMS//$item})
+done
+
+TASK_PARAMS=(${(u)TASK_PARAMS[@]})
+
+echo "Applying new filters: ${TASK_PARAMS[@]}"
+
+echo $TASK_PARAMS > ~/.task_params

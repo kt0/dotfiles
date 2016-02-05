@@ -6,44 +6,6 @@ function gz() {
   gzip -c "$1" | wc -c
 }
 
-# Extract archives - use: extract <file>
-# Based on http://dotfiles.org/~pseup/.bashrc
-function extract() {
-  if [ -f "$1" ] ; then
-    local filename=$(basename "$1")
-    local foldername="${filename%%.*}"
-    local fullpath=`perl -e 'use Cwd "abs_path";print abs_path(shift)' "$1"`
-    local didfolderexist=false
-    if [ -d "$foldername" ]; then
-      didfolderexist=true
-      read -p "$foldername already exists, do you want to overwrite it? (y/n) " -n 1
-      echo
-      if [[ $REPLY =~ ^[Nn]$ ]]; then
-        return
-      fi
-    fi
-    mkdir -p "$foldername" && cd "$foldername"
-    case $1 in
-      *.tar.bz2) tar xjf "$fullpath" ;;
-      *.tar.gz) tar xzf "$fullpath" ;;
-      *.tar.xz) tar Jxvf "$fullpath" ;;
-      *.tar.Z) tar xzf "$fullpath" ;;
-      *.tar) tar xf "$fullpath" ;;
-      *.taz) tar xzf "$fullpath" ;;
-      *.tb2) tar xjf "$fullpath" ;;
-      *.tbz) tar xjf "$fullpath" ;;
-      *.tbz2) tar xjf "$fullpath" ;;
-      *.tgz) tar xzf "$fullpath" ;;
-      *.txz) tar Jxvf "$fullpath" ;;
-      *.zip) unzip "$fullpath" ;;
-      *) echo "'$1' cannot be extracted via extract()" && cd .. && ! $didfolderexist && rm -r "$foldername" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
-
-
 # who is using the laptop's iSight camera?
 camerausedby() {
     echo "Checking to see who is using the iSight camera… 📷"
@@ -78,4 +40,37 @@ show() {
                 xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
                 {}
 FZF-EOF"
+}
+
+task() {
+  local TASK_PARAMS COMMAND ORIG
+  COMMAND="command task"
+  ORIG=1
+  if [[ -n $1 ]]; then
+    case $1 in
+      add|annotate|append|count|delete|denotate|edit|modify|list|ls|rm|\
+      active|blocked|blocking|completed|list|long|ls|minimal|newest|next|\
+      oldest|overdue|ready|recurring|unblocked|waiting )
+        ORIG=0
+      ;;
+    esac
+  else
+    ORIG=0
+  fi
+  if [ $ORIG -eq 0 ] && [[ -e ~/.task_params ]]; then
+    COMMAND="$COMMAND $(cat ~/.task_params) $@"
+  else
+    COMMAND="$COMMAND $@"
+  fi
+  eval $COMMAND
+}
+
+gif_to_mp4 () {
+  file=$1
+  name=${file%.*}
+  ffmpeg -i $file -c:v libx264 -pix_fmt yuv420p -movflags +faststart $name.mp4
+}
+
+t () {
+  tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst -L ${1:-2} -aC $2
 }

@@ -1,0 +1,62 @@
+# [Created by task 2.5.0 2/6/2016 00:44:59]
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=~/.task
+
+# default.command=list
+
+# Color theme (uncomment one to use)
+#include /usr/local/Cellar/task/2.5.0_1/share/doc/task/rc/light-16.theme
+#include /usr/local/Cellar/task/2.5.0_1/share/doc/task/rc/light-256.theme
+#include /usr/local/Cellar/task/2.5.0_1/share/doc/task/rc/dark-16.theme
+#include /usr/local/Cellar/task/2.5.0_1/share/doc/task/rc/dark-256.theme
+#include /usr/local/Cellar/task/2.5.0_1/share/doc/task/rc/dark-red-256.theme
+#include /usr/local/Cellar/task/2.5.0_1/share/doc/task/rc/dark-green-256.theme
+#include /usr/local/Cellar/task/2.5.0_1/share/doc/task/rc/dark-blue-256.theme
+#include /usr/local/Cellar/task/2.5.0_1/share/doc/task/rc/dark-violets-256.theme
+#include /usr/local/Cellar/task/2.5.0_1/share/doc/task/rc/dark-yellow-green.theme
+#include /usr/local/Cellar/task/2.5.0_1/share/doc/task/rc/dark-gray-256.theme
+#include /usr/local/Cellar/task/2.5.0_1/share/doc/task/rc/dark-gray-blue-256.theme
+#include /usr/local/Cellar/task/2.5.0_1/share/doc/task/rc/solarized-dark-256.theme
+#include /usr/local/Cellar/task/2.5.0_1/share/doc/task/rc/solarized-light-256.theme
+#include /usr/local/Cellar/task/2.5.0_1/share/doc/task/rc/no-color.theme
+
+uda.priority.values=h,m,,l
+editor=subl -w
+search.case.sensitive=no
+dom=off
+alias.shell=exec tasksh
+alias.use=exec task_use $@
+default.project=personal
+context.today=due:today
+context.taskulu=project:taskulu
+
+
+urgency.active.coefficient=4.0
+urgency.age.coefficient=2.0
+urgency.annotations.coefficient=0.0
+urgency.blocked.coefficient=-5.0
+urgency.blocking.coefficient=8.0
+urgency.due.coefficient=8.0
+urgency.project.coefficient=0.0
+urgency.scheduled.coefficient=5.0
+urgency.tags.coefficient=0.0
+urgency.uda.priority.h.coefficient=6.0
+urgency.uda.priority.l.coefficient=-3.0
+urgency.uda.priority.m.coefficient=3.0
+urgency.user.tag.next.coefficient=15.0
+urgency.waiting.coefficient=-3.0
+
+
+report.list.columns=id,start.age,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description.count,urgency
+report.list.labels=ID,Active,D,P,Project,Tags,R,Sch,Due,Until,Description,Urg

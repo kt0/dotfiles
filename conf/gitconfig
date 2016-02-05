@@ -1,0 +1,118 @@
+[include]
+  path = .gitconfig_private
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[github]
+  user = kt0
+[core]
+  # editor = nano
+  editor = 'subl' --wait
+
+  autocrlf = false
+  fileMode = false
+
+  # Make `git rebase` safer on OS X
+  # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+  trustctime = false
+	excludesfile = /Users/kito/.gitignore_global
+  pager = diff-highlight | diff-so-fancy | less -r
+
+[color]
+  ui = auto
+  status = auto
+  branch = auto
+  interactive = auto
+
+[color "branch"]
+  current = green bold
+  local = green
+  remote = red bold
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold # line info
+	old = red bold # deletions
+	new = green bold # additions
+  commit = cyan bold
+
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red dim bold
+
+[merge]
+  tool = meld
+  summary = true
+  verbosity = 1
+#  ff = only
+[diff]
+  tool = meld
+  algorithm = patience
+  mnemonicprefix = true
+
+  # Detect copies as well as renames
+	renames = copies
+
+[push]
+  default = upstream
+[fetch]
+  prune = true
+[rebase]
+  autosquash = true
+[branch "master"]
+  mergeoptions = --no-ff
+[pull]
+  rebase = yes
+  default = current
+
+[rerere]
+  enabled = true
+
+[format]
+  #pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
+
+
+[alias]
+  # via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
+  assume   = update-index --assume-unchanged
+  unassume = update-index --no-assume-unchanged
+  assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
+
+  # via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
+  snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+  snapshots = !git stash list --grep snapshot
+
+  download = clone --depth=1
+
+  icdiff =  !git difftool --no-prompt --extcmd icdiff "$@" | less -R
+
+  tags = tag -l
+
+  amend = commit --amend --reuse-message=HEAD
+
+  sync = git-sync
+
+  ff = !git rev-parse --abbrev-ref --symbolic-full-name @{u} | git merge --ff-only
+
+  ahead = !git rev-list master.."$1"
+  ahead-last = !git show $(git rev-list master.."$1" | head -n1)
+  ahead-count = !git rev-list --left-right --count master...$1
+
+  branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(color:yellow)%(refname:short)\" refs/remotes
+  last-branches = for-each-ref --count=20 --sort=-committerdate refs/heads/ --format=\"%(color:blue)%(authordate:relative)\t%(color:red)%(authorname)\t%(HEAD)%(color:yellow)%(refname:short) -> %(color:cyan)%(upstream:short) %(upstream:track)\"
+  graph = log --graph --oneline --decorate
+  lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) %C(green)%s%C(reset) - %C(bold blue)<%an> - (%ar)%Creset %C(bold yellow)%d%C(reset)' --all
+  ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  lg-full = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) %C(green)%s%C(reset) - %C(bold blue)<%an> - (%aD)%Creset %C(bold yellow)%d%C(reset)' --all
+  fuck = !git reset --hard `git rev-parse --abbrev-ref --symbolic-full-name @{u}`
+  master-reset = reset --hard origin/master --
+  oldest-ancestor = !zsh -c 'diff -u <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
+  diff-head = diff --cached HEAD^
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
