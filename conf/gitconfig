@@ -16,11 +16,17 @@
   # Make `git rebase` safer on OS X
   # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
   trustctime = false
-	excludesfile = /Users/kito/.gitignore_global
-  pager = diff-highlight | diff-so-fancy | less -r
+  excludesfile = /Users/kito/.gitignore_global
+
+[pager]
+  diff = diff-so-fancy | less --tabs=4 -RFX
+  show = diff-so-fancy | less --tabs=4 -RFX
+
+[interactive]
+  diffFilter = "diff-so-fancy"
 
 [color]
-  ui = auto
+  ui = always
   status = auto
   branch = auto
   interactive = auto
@@ -36,11 +42,23 @@
 	old = red bold # deletions
 	new = green bold # additions
   commit = cyan bold
+  whitespace = red reverse
 
 [color "status"]
 	added = green bold
 	changed = yellow bold
 	untracked = red dim bold
+
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+
+[diff-so-fancy]
+  stripLeadingSymbols = true
+  markEmptyLines = false
+  changeHunkIndicators = true
 
 [merge]
   tool = meld
