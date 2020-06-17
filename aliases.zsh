@@ -10,7 +10,6 @@ alias -g .....='../../../..'
 alias gst='git status'
 
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-alias cask='brew cask'
 
 # use coreutils `ls` if possible…
 hash gls >/dev/null 2>&1 || alias gls="ls"
@@ -52,7 +51,9 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias time=/usr/bin/time
 
 alias no="2>/dev/null"
-alias proxy="no proxychains4"
+alias proxy="env https_proxy=http://localhost:8124 http_proxy=http://localhost:8124"
+alias proxyon="export https_proxy=http://localhost:8124 && export http_proxy=http://localhost:8124"
+alias proxyoff="unset https_proxy && unset http_proxy"
 
 alias tasks="task list"
 
@@ -60,3 +61,10 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # alias nano='`brew --prefix nano`/bin/nano'
+
+alias cat='bat --style=grid'
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+
+# alias pip=pip3
+alias python=python3
+alias mux=tmuxinator

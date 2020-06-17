@@ -1,0 +1,49 @@
+cask_args appdir: '/Applications'
+
+tap 'caskroom/cask'
+tap 'homebrew/bundle'
+tap 'homebrew/fuse'
+tap 'homebrew/versions'
+tap 'caskroom/version'
+tap 'caskroom/fonts'
+tap 'homebrew/dupes'
+tap martido/homebrew-graph
+
+brew 'node'
+brew 'ruby'
+brew 'mongodb'
+brew 'redis'
+brew 'zsh'
+brew 'youtube-dl'
+brew 'task'
+brew 'coreutils'
+brew 'elixir'
+brew 'ffmpeg'
+brew 'fzf'
+brew 'git'
+brew 'ntfs-3g'
+brew 'postgresql'
+brew 'rust'
+brew 'aria2'
+brew 'proxychains-ng'
+brew 'pv'
+brew 'siege'
+brew 'watchman'
+brew 'nano' # up to date nano <3
+brew 'diff-so-fancy'
+brew 'polipo'
+brew 'bat' # cat alternative
+
+cask 'google-chrome'
+cask 'iterm-beta'
+cask 'vlc'
+cask 'flux'
+cask 'disk-inventory-x'
+cask 'osxfuse'
+
+cask 'firefox'
+cask 'font-dejavu-sans'
+cask 'font-roboto'
+cask 'transmission'
+cask 'horndis' #usb tethering
+

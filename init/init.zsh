@@ -7,6 +7,7 @@ ln -s $PARENT_DIR/conf/zshrc $HOME/.zshrc
 ln -s $PARENT_DIR/conf/gemrc $HOME/.gemrc
 ln -s $PARENT_DIR/conf/taskrc $HOME/.taskrc
 ln -s $PARENT_DIR/conf/nanorc $HOME/.nanorc
+ln -s $PARENT_DIR/conf/wgetrc $HOME/.wgetrc
 ln -s $PARENT_DIR/conf/tmux.conf $HOME/.tmux.conf.local
 ln -s $PARENT_DIR/packages/tmux/.tmux.conf $HOME/.tmux.conf
 
