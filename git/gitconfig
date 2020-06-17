@@ -1,0 +1,5 @@
+[include]
+  path = base.gitconfig
+  path = alias.gitconfig
+  # path = mac.gitconfig
+  path = windows.gitconfig
