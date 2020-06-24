@@ -1,9 +1,11 @@
 # get gzipped size
-function gz() {
-  echo "orig size    (bytes): "
-  cat "$1" | wc -c
-  echo "gzipped size (bytes): "
-  gzip -c "$1" | wc -c
+function gz () {
+  for file in "$@"
+  do
+    size=$(cat "$file" | wc -c)
+    gzipped=$(gzip -c "$file" | wc -c)
+    echo "$file: $size, Gzipped: $gzipped, diff: $(($size - $gzipped))"
+  done
 }
 
 # who is using the laptop's iSight camera?
@@ -71,6 +73,30 @@ gif_to_mp4 () {
   ffmpeg -i $file -c:v libx264 -pix_fmt yuv420p -movflags +faststart $name.mp4
 }
 
+# t () {
+#   tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst -L ${1:-2} -aC $2
+# }
+
+
 t () {
-  tree -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst -L ${1:-2} -aC $2
+  if [[ -n $1 ]]; then
+    ssh taskulu-$@
+  else
+    ssh taskulu-app1
+  fi
+}
+
+river () {
+  if [[ -n $1 ]]; then
+    ssh river-$@
+  else
+    ssh river-staging
+  fi
+}
+
+# Schedule sleep in X minutes, use like: sleep-in 60
+function sleep-in() {
+  local minutes=$1
+  local datetime=`/bin/date -v+${minutes}M +"%m/%d/%y %H:%M:%S"`
+  sudo pmset schedule sleep "$datetime"
 }

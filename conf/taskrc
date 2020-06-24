@@ -32,7 +32,7 @@ data.location=~/.task
 #include /usr/local/Cellar/task/2.5.0_1/share/doc/task/rc/no-color.theme
 
 uda.priority.values=h,m,,l
-editor=subl -w
+editor=code -w
 search.case.sensitive=no
 dom=off
 alias.shell=exec tasksh
@@ -60,3 +60,9 @@ urgency.waiting.coefficient=-3.0
 
 report.list.columns=id,start.age,depends,priority,project,tags,recur,scheduled.countdown,due.remaining,until.remaining,description.count,urgency
 report.list.labels=ID,Active,D,P,Project,Tags,R,Sch,Due,Until,Description,Urg
+uda.reviewed.type=date
+uda.reviewed.label=Reviewed
+report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
+report._reviewed.columns=uuid
+report._reviewed.sort=reviewed+,modified+
+report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )

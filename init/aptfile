@@ -6,9 +6,10 @@ if [ "$EUID" -ne 0 ]
 fi
 
 packages=(
-  bat
+  bat # cat alternative
   build-essential
+  shellcheck # used for checking shell scripts, used by shellcheck vscode extension
+  silversearcher-ag # Just a fast awk alternative
 )
 
-apt install $packages
-
+apt install "${packages[@]}"

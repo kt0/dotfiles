@@ -1,7 +1,9 @@
 CURRENT_RUBY="%{$fg[white]%}{%{$fg[red]%}\$(ruby_prompt_info)%{$fg[white]%}}%{$reset_color%}"
 
 PROMPT="%F{green}%2c%F{cyan} >%f "
-RPROMPT="\$(git_prompt_status)\$(git_prompt_info) $CURRENT_RUBY %F{green}%D{%L:%M} %F{yellow}%D{%p}%f"
+# RPROMPT="\$(git_prompt_status)\$(git_prompt_info) $CURRENT_RUBY"
+# Temporarily removed this due to issue in WSL2 and Git
+RPROMPT=""
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%f"

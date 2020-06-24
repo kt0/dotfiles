@@ -1,7 +1,29 @@
 [submodule "zsh-completions"]
-	path = plugins/zsh-completions
+	path = zsh/plugins/zsh-completions
   url = git://github.com/zsh-users/zsh-completions.git
-
 [submodule "zsh-syntax-highlighting"]
-  path = plugins/zsh-syntax-highlighting
+	path = zsh/plugins/zsh-syntax-highlighting
   url = git://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "zsh/plugins/zsh-history-substring-search"]
+	path = zsh/plugins/zsh-history-substring-search
+	url = git@github.com:zsh-users/zsh-history-substring-search.git
+[submodule "zsh/plugins/zsh-autosuggestions"]
+	path = zsh/plugins/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "packages/ohmyzsh"]
+	path = packages/ohmyzsh
+	url = git@github.com:ohmyzsh/ohmyzsh.git
+
+[submodule "extensions/distract-me-not"]
+	path = extensions/distract-me-not
+	url = git@github.com:AXeL-dev/distract-me-not.git
+
+[submodule "packages/tmux"]
+	path = packages/tmux
+	url = git@github.com:gpakosz/.tmux.git
+[submodule "packages/fzf"]
+	path = packages/fzf
+	url = git@github.com:junegunn/fzf.git
+[submodule "extensions/bypass-paywalls-chrome"]
+	path = extensions/bypass-paywalls-chrome
+	url = git@github.com:iamadamdev/bypass-paywalls-chrome.git

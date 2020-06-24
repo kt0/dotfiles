@@ -1,7 +1,16 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/kito/.oh-my-zsh
+#! /usr/bin/env zsh
 
-local P_ROOT=~/.kito/plugins
+# zmodload zsh/zprof # must be at the start of file
+# Path to your oh-my-zsh installation.
+
+# http://www.refining-linux.org/archives/49/ZSH-Gem-15-Shared-history/
+# instant append to history
+setopt inc_append_history
+# share history between sessions
+setopt share_history
+setopt hist_ignore_all_dups
+
+disable r
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -24,7 +33,7 @@ DISABLE_AUTO_UPDATE="true"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -53,7 +62,13 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  brew-cask colorize extract
+  colorize
+  extract
+  npm
+  fzf
+  rustup
+  tmuxinator
+  # docker docker-compose
 )
 
 # Load completions and don't pollute aliases!
@@ -62,42 +77,37 @@ completion_plugins=(
   # rails gem thor brew
 )
 
-for plugin ($completion_plugins); do
-  fpath=($ZSH/plugins/$plugin $fpath)
+ZSH_ROOT="$DOTFILES_ROOT/zsh"
+
+for plugin in "${completion_plugins[@]}"; do
+  fpath+=("$ZSH"/plugins/"$plugin" "${fpath[@]}")
 done
 
-function load () {
-  for script in "$@"
-  do
-    source ~/.kito/$script.zsh
-  done
-}
+source "$ZSH_ROOT/aliases.zsh"
+source "$ZSH_ROOT/exports.zsh"
 
-load zsh rbenv exports aliases docker
-
-if [[ -d ~/.kito/my ]]; then
-  for file in ~/.kito/my/*.zsh; do
-    source $file
+# I store configuration that is private here, not included in the repository
+if [[ -d $DOTFILES_ROOT/my ]]; then
+  for file in $DOTFILES_ROOT/my/*.zsh; do
+    source "$file"
   done
 fi
 
-[ -d $P_ROOT/zsh-completions ] && fpath+=$P_ROOT/zsh-completions/src
+source "$ZSH_ROOT/plugins.zsh"
+source "$ZSH/oh-my-zsh.sh"
+source "$ZSH_ROOT/theme.zsh"
 
-source $ZSH/oh-my-zsh.sh
-
-[ -f $P_ROOT/fzf.zsh ] && source $P_ROOT/fzf.zsh
-
-[ -f $P_ROOT/bookmark.zsh ] && source $P_ROOT/bookmark.zsh
-
-[ -f $P_ROOT/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
-source $P_ROOT/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-source ~/.kito/k-theme.zsh
 
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}'
 
-load functions
+source "$ZSH_ROOT/functions.zsh"
 
-unset -f load
+[ -f $P_ROOT/fzf.zsh ] && source $P_ROOT/fzf.zsh
 
-source ~/.kito/my/npm_completion.sh
+# autoload -U compinit && compinit
+
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+export PATH=$HOME/.local/bin/:$PATH
+
+# zprof # Must be end of file
