@@ -3,16 +3,16 @@
 This is my dotfiles, I use it to:
 * bootstrap new working environments
 * keep my configuration files organized
-* keep copies of plugins and open source chrome extensions I on my browsers.
+* keep copies of plugins and open source chrome extensions I use in chromium browsers.
 
-I use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about), and using [Microsoft Terminal](https://github.com/microsoft/terminal), but configurations may work on.
+I use [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about), and using [Microsoft Terminal](https://github.com/microsoft/terminal), but configurations may work on any posix environment.
 
-Most of these scripts are me configuring my desktop environments. They are quite easy to read and modify for your own use cases. This dotfiles initially was inspired by similar projects [@mathiasbynens](https://github.com/mathiasbynens/dotfiles) and [@paulirish](https://github.com/paulirish/dotfiles), I check other people changes from time to time and change mine for my own taste.
+Most of these scripts are me configuring my shell environments. They are quite easy to read and modify for your own use cases. This dotfiles initially was inspired by similar projects [@mathiasbynens](https://github.com/mathiasbynens/dotfiles) and [@paulirish](https://github.com/paulirish/dotfiles), I check other people dotfiles from time to time and change mine for my own taste.
 
 There are lots of other configuration files shared by other talented people which you can find and use on [dotfiles](https://dotfiles.github.io/) and find your inspiration.
 
 ## Usage.
-Right now I run different scripts based on environment and requirements of that environment, they are located in init directory. They create or link initial scripts for my development environment. I strongly recommend reading them if you want to use them.
+Right now I run different scripts based on environment and requirements of that environment, they are located in init directory. They create or link initial scripts for my development environment. Reason for linking is that I can commit from any of those environments. I strongly recommend reading them if you want to use them.
 
 ## What's up with submodules?
 
