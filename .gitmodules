@@ -27,3 +27,6 @@
 [submodule "extensions/bypass-paywalls-chrome"]
 	path = extensions/bypass-paywalls-chrome
 	url = git@github.com:iamadamdev/bypass-paywalls-chrome.git
+[submodule "packages/diff-so-fancy"]
+	path = packages/diff-so-fancy
+	url = git@github.com:so-fancy/diff-so-fancy.git
