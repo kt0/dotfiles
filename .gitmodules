@@ -19,8 +19,8 @@
 	url = git@github.com:AXeL-dev/distract-me-not.git
 
 [submodule "packages/tmux"]
-	path = packages/tmux.gpakosz
-	url = git@github.com:gpakosz/.tmux.git
+	path = packages/tmux
+	url = git@github.com:tmux/tmux.git
 [submodule "packages/fzf"]
 	path = packages/fzf
 	url = git@github.com:junegunn/fzf.git

@@ -59,3 +59,12 @@ sudo ln -s "$DOTFILES_ROOT"/conf/apt.conf /etc/apt/apt.conf.d/00-my.conf
 # Install fzf (we use git submodules for fzf)
 ##################
 exec "$DOTFILES_ROOT"/packages/fzf/install
+
+##################
+# Install tmux (we use git submodules for tmux)
+##################
+pushd $DOTFILES_ROOT/packages/tmux
+sh autogen.sh
+./configure && make
+sudo make install
+popd

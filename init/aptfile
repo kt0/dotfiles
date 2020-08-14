@@ -8,6 +8,7 @@ add-apt-repository ppa:mmstick76/alacritty
 apt update
 
 packages=(
+  autoconf automake pkg-config libevent-dev libncurses-dev # for building tmux
   bat # cat alternative
   build-essential
   shellcheck # used for checking shell scripts, used by shellcheck vscode extension
