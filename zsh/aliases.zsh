@@ -62,9 +62,6 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 
 # alias nano='`brew --prefix nano`/bin/nano'
 
-alias cat='bat --style=grid'
-alias preview="fzf --preview 'bat --color \"always\" {}'"
-
 # alias pip=pip3
 alias python=python3
 alias mux=tmuxinator
