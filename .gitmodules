@@ -30,3 +30,6 @@
 [submodule "packages/diff-so-fancy"]
 	path = packages/diff-so-fancy
 	url = git@github.com:so-fancy/diff-so-fancy.git
+[submodule "packages/PathPicker"]
+	path = packages/PathPicker
+	url = https://github.com/facebook/PathPicker.git
