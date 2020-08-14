@@ -71,20 +71,11 @@ plugins=(
   # docker docker-compose
 )
 
-# Load completions and don't pollute aliases!
-completion_plugins=(
-  # These are already handled
-  # rails gem thor brew
-)
-
 ZSH_ROOT="$DOTFILES_ROOT/zsh"
-
-for plugin in "${completion_plugins[@]}"; do
-  fpath+=("$ZSH"/plugins/"$plugin" "${fpath[@]}")
-done
 
 source "$ZSH_ROOT/aliases.zsh"
 source "$ZSH_ROOT/exports.zsh"
+source "$ZSH_ROOT/configs.zsh"
 
 # I store configuration that is private here, not included in the repository
 if [[ -d $DOTFILES_ROOT/my ]]; then
@@ -102,11 +93,7 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}'
 
 source "$ZSH_ROOT/functions.zsh"
 
-[ -f $P_ROOT/fzf.zsh ] && source $P_ROOT/fzf.zsh
-
 # autoload -U compinit && compinit
-
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 export PATH=$HOME/.local/bin/:$PATH
 
