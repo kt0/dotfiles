@@ -33,3 +33,6 @@
 [submodule "packages/PathPicker"]
 	path = packages/PathPicker
 	url = https://github.com/facebook/PathPicker.git
+[submodule "packages/z"]
+	path = packages/z
+	url = git@github.com:rupa/z.git
