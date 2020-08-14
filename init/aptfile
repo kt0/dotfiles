@@ -4,12 +4,15 @@ if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
 fi
+add-apt-repository ppa:mmstick76/alacritty
+apt update
 
 packages=(
   bat # cat alternative
   build-essential
   shellcheck # used for checking shell scripts, used by shellcheck vscode extension
   silversearcher-ag # Just a fast awk alternative
+  alacritty
 )
 
 apt install "${packages[@]}"
