@@ -13,7 +13,7 @@ packages=(
   build-essential
   shellcheck # used for checking shell scripts, used by shellcheck vscode extension
   silversearcher-ag # Just a fast awk alternative
-  libinput-tools # for libinput gestures
+  libinput-tools xdotool wmctrl # for libinput gestures
   alacritty
 )
 
