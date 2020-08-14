@@ -19,7 +19,7 @@
 	url = git@github.com:AXeL-dev/distract-me-not.git
 
 [submodule "packages/tmux"]
-	path = packages/tmux
+	path = packages/tmux.gpakosz
 	url = git@github.com:gpakosz/.tmux.git
 [submodule "packages/fzf"]
 	path = packages/fzf
