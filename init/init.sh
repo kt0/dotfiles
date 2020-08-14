@@ -9,7 +9,7 @@ ln -s "$DOTFILES_ROOT"/conf/youtube-dl "$HOME"/youtube-dl.conf
 ln -s "$DOTFILES_ROOT"/conf/wgetrc "$HOME"/.wgetrc
 ln -s "$DOTFILES_ROOT"/conf/tmux.conf "$HOME"/.tmux.conf.local
 ln -s "$DOTFILES_ROOT"/conf/alacritty "$HOME"/.config/alacritty
-ln -s "$DOTFILES_ROOT"/packages/tmux/.tmux.conf "$HOME"/.tmux.conf
+ln -s "$DOTFILES_ROOT"/packages/tmux.gpakosz/.tmux.conf "$HOME"/.tmux.conf
 ln -s "$DOTFILES_ROOT"/packages/diff-so-fancy/diff-so-fancy "$HOME"/bin/diff-so-fancy
 ln -s "$DOTFILES_ROOT"/packages/PathPicker/fpp "$HOME"/bin/fpp
 
