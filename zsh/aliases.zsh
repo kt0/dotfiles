@@ -74,5 +74,7 @@ if [ ! $(uname -s) = 'Darwin' ]; then
 		alias open='explorer.exe';
 	else
 		alias open='xdg-open';
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
 	fi
 fi

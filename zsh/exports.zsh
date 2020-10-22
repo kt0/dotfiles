@@ -5,6 +5,8 @@ export PATH="$PATH:/usr/local/sbin"
 
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH=$PATH:~/bin
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$DOTFILES_ROOT/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"

@@ -95,8 +95,6 @@ source "$ZSH_ROOT/functions.zsh"
 
 # autoload -U compinit && compinit
 
-export PATH=$HOME/.local/bin/:$PATH
-
 # zprof # Must be end of file
 
 source $DOTFILES_ROOT/packages/z/z.sh
