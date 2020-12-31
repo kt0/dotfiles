@@ -51,9 +51,9 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias time=/usr/bin/time
 
 alias no="2>/dev/null"
-alias proxy="env https_proxy=http://localhost:8124 http_proxy=http://localhost:8124"
-alias proxyon="export https_proxy=http://localhost:8124 && export http_proxy=http://localhost:8124"
-alias proxyoff="unset https_proxy && unset http_proxy"
+alias proxy="env HTTPS_PROXY=http://localhost:8118 HTTP_PROXY=http://localhost:8118"
+alias proxyon="export HTTPS_PROXY=http://localhost:8118 && export HTTP_PROXY=http://localhost:8118"
+alias proxyoff="unset HTTPS_PROXY && unset HTTP_PROXY"
 
 alias tasks="task list"
 
