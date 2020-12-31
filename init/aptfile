@@ -5,6 +5,8 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 add-apt-repository ppa:mmstick76/alacritty
+add-apt-repository ppa:alexlarsson/flatpak
+
 apt update
 
 packages=(
@@ -15,6 +17,9 @@ packages=(
   silversearcher-ag # Just a fast awk alternative
   libinput-tools xdotool wmctrl # for libinput gestures
   alacritty
+  flatpak
 )
 
 apt install "${packages[@]}"
+
+./flatpak.sh
