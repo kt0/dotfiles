@@ -17,13 +17,6 @@
   trustctime = false
   excludesfile = /Users/kito/.gitignore_global
 
-[pager]
-  diff = diff-so-fancy | less --tabs=4 -RFX
-  show = diff-so-fancy | less --tabs=4 -RFX
-
-# [interactive]
-#   diffFilter = "diff-so-fancy"
-
 [color]
   ui = true
   status = auto
@@ -54,11 +47,6 @@
   newNormal = green bold
   newHighlight = green bold 22
 
-[diff-so-fancy]
-  stripLeadingSymbols = true
-  markEmptyLines = false
-  changeHunkIndicators = true
-
 [merge]
   tool = meld
   summary = true
@@ -70,7 +58,8 @@
   mnemonicprefix = true
 
   # Detect copies as well as renames
-	renames = copies
+  renames = copies
+  colorMoved = dimmed-zebra
 
 [push]
   default = upstream

@@ -43,7 +43,12 @@ GITCONFIG_FILE=$HOME/.gitconfig
 
 prepend "$GITCONFIG_FILE" \
 "[include]
-  path = $DOTFILES_ROOT/git/gitconfig"
+  path = $DOTFILES_ROOT/git/gitconfig
+  path = $DOTFILES_ROOT/git/delta.gitconfig
+  # path = $DOTFILES_ROOT/git/so-fancy.gitconfig
+  # path = $DOTFILES_ROOT/git/mac.gitconfig
+  # path = $DOTFILES_ROOT/git/windows.gitconfig
+"
 
 # Rename master to main in git
 cp -r /usr/share/git-core/templates ~/Templates/git.git
