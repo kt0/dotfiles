@@ -5,6 +5,9 @@ window:
     x: 0
     y: 0
 
+env:
+  WINIT_X11_SCALE_FACTOR: "1.0"
+
 font:
   normal:
     family: 'Cascadia Code PL'
