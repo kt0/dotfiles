@@ -4,8 +4,9 @@ if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
 fi
-add-apt-repository ppa:mmstick76/alacritty
-add-apt-repository ppa:alexlarsson/flatpak
+
+add-apt-repository -n ppa:mmstick76/alacritty
+add-apt-repository -n ppa:jonaski/strawberry
 
 apt update
 
@@ -17,9 +18,15 @@ packages=(
   silversearcher-ag # Just a fast awk alternative
   libinput-tools xdotool wmctrl # for libinput gestures
   alacritty
-  flatpak
+  flameshot # screenshot
+  peek # gif screen recorder
+  strawberry # music player
 )
 
 apt install "${packages[@]}"
 
-./flatpak.sh
+cat <<- END
+Other apps
+ * https://github.com/johnfactotum/foliate/ # ebook reader
+ * https://github.com/dandavison/delta/releases # fancy git
+END
