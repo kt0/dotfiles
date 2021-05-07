@@ -7,6 +7,7 @@ ln -s "$DOTFILES_ROOT"/conf/taskrc "$HOME"/.taskrc
 ln -s "$DOTFILES_ROOT"/conf/nanorc "$HOME"/.nanorc
 ln -s "$DOTFILES_ROOT"/conf/youtube-dl "$HOME"/youtube-dl.conf
 ln -s "$DOTFILES_ROOT"/conf/wgetrc "$HOME"/.wgetrc
+ln -s "$DOTFILES_ROOT"/conf/initrc "$HOME"/.initrc
 ln -s "$DOTFILES_ROOT"/conf/tmux.conf "$HOME"/.tmux.conf.local
 ln -s "$DOTFILES_ROOT"/conf/alacritty "$HOME"/.config/alacritty
 ln -s "$DOTFILES_ROOT"/packages/tmux.gpakosz/.tmux.conf "$HOME"/.tmux.conf

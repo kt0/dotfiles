@@ -1,0 +1,41 @@
+set bell-style visible
+
+# Immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
+
+# Completion Options
+set page-completions on                  # Page completions more like.
+set completion-ignore-case on            # Ignore case
+set completion-map-case on               # Map hyphen and underscore
+set print-completion-horizontally off    # Don't print horizontally
+set completion-query-items 200           # Show double the number of default completions.
+set match-hidden-files off               # Don't match hidden files
+set show-all-if-ambiguous on             # Enable single tab completion
+set show-all-if-unmodified on            # List immediately, don't bell if ambigous.
+set visible-stats on                     # Show item type like 'ls -F', displays /,*,@ next to name
+
+# Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
+set meta-flag on
+set input-meta on
+set output-meta on
+set convert-meta off
+
+# Show extra file information when completing, like `ls -F` does
+set visible-stats on
+
+# Be more intelligent when autocompleting by also looking at the text after
+# the cursor. For example, when the current line is "cd ~/src/mozil", and
+# the cursor is on the "z", pressing Tab will not autocomplete it to "cd
+# ~/src/mozillail", but to "cd ~/src/mozilla". (This is supported by the
+# Readline used by Bash 4.)
+set skip-completed-text on
+set colored-stats on
+
+
+# Bash-specific mappings and settings
+$if Bash
+  Space: magic-space
+  \C-w: backward-kill-word
+  # "\C-n": menu-complete
+$endif
+
