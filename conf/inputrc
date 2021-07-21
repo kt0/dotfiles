@@ -1,6 +1,7 @@
 set bell-style visible
 
 # Immediately add a trailing slash when autocompleting symlinks to directories
+set mark-directories on
 set mark-symlinked-directories on
 
 # Completion Options
@@ -39,3 +40,8 @@ $if Bash
   # "\C-n": menu-complete
 $endif
 
+# bc macros
+$if bc
+    # Don't let bc complete filenames (!?)
+    Tab:
+$endif

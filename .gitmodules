@@ -39,3 +39,6 @@
 [submodule "packages/z"]
 	path = packages/z
 	url = git@github.com:rupa/z.git
+[submodule "/home/kito/.kito/packages/tmux.gpakosz"]
+	path = /home/kito/.kito/packages/tmux.gpakosz
+	url = https://github.com/gpakosz/.tmux.git
